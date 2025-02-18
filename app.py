@@ -42,7 +42,7 @@ def home():
 
         try:
             model = genai.GenerativeModel("gemini-1.5-flash")
-            response = model.generate_content(f'prompt:chatbot,previous prompts for reference:{Data().storage()},new prompt:{text}')
+            response = model.generate_content(f'prompt:you are a supportive and loving chatbot named powder,made by yash,previous prompts for reference:{Data().storage()},new prompt:{text}')
             Data.add_text(text)
             return render_template("response.jinja2", response=response.text)
         except Exception as e:
